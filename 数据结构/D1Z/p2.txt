@@ -1,0 +1,51 @@
+笔记：
+考研数据结构代码书写：
+1.不用头文件和using namespace std;
+2.不用宏定义一个常亮，在需要时注释就好
+3.写好自己的函数说明，写清楚函数的接口，不用写main函数
+链表节点的结构型定义如下：
+typedef struct Node
+{
+	int data;
+	struct Node *next;
+}Node;
+二叉树节点的定义如下：
+typedef struct BTNode
+{
+	int data;
+	struct BTNode *lchild;
+	struct BTNode *rchild;
+}BTNode;
+创建新节点：
+BTNode *BT;
+BT=(BTNode*)malloc(sizeof(BTNode));
+一维数组作为参数的函数定义方法如下：
+void f(int x[],int n)
+{
+
+}
+二维数组作为函数的参数定义方法如下：
+void f(int x[][maxsize],int n)
+{
+
+}
+其它参数引用型：
+void insert(Sqlist &L,int x)
+void SearchAndDelete(LNode *C,int x)
+void merge(LNode *A,LNode *B,LNode *&C）
+算法时间复杂度为算法中基本操作的执行次数。
+常用复杂度大小关系：
+O(1)<=O(log2(n))<=O(n)<=O(nlog2(n))<=O(n^2)<=O(n^3)<=O(2^n)
+数据结构：三方面：逻辑结构，物理结构，对书局的运算。
+算法：有穷，确定，输入，输出，可行。
+设计目标：正确性，可读性，健壮性，算法效率
+
+
+
+
+
+
+
+
+
+
