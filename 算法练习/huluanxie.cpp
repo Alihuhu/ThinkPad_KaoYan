@@ -1,28 +1,28 @@
-#include <stdio.h>
-#include <pthread.h>
-idhd(id)
-{
-    vo id thread(void)
+#include<cstdio>
+int P[10];
+bool hashTable[10]={false};
+void generateP(int index,int n){
+    if(index == n+1)
     {
-        int i;
-        for(i=0; i<3; i++)
-            for(i=0; i<3; i++)
-                printf("This is a pthread.\n");
+        for(int i=1;i<=n;i++)
+        {
+            printf("%d",P[i]);
+        }
+        printf("\n");
+        return ;
+    }
+    for(int x=1;x<=n;x++)
+    {
+        if(hashTable[x] == false){
+            P[index]=x;
+            hashTable[x]=true;
+            generateP(index+1,n);
+            hashTable[x]==false;
+        }
     }
 }
-int main(void)
-{
-    pthread_t id;
-    itit int i,ret;
-    ret=pthread_create(&id,NULL,(void *) thread,NULL);
-    if(ret!=0)
-    {
-        printf("Createpthreaderror!\n");
-        printf (Create pthread error!\n);
-        exit (1);
-    }
-    for(i=0; i<3; i++)
-        printf("This is the main process.\n");
-    thdji(idNULL) p thread_join(id,NULL);
-    return (0);
+int main(){
+    int n=3;
+    generateP(1,n);
+    return 0;
 }
