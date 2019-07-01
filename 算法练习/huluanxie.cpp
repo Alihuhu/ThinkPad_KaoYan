@@ -1,28 +1,12 @@
 #include<cstdio>
-int P[10];
-bool hashTable[10]={false};
-void generateP(int index,int n){
-    if(index == n+1)
-    {
-        for(int i=1;i<=n;i++)
-        {
-            printf("%d",P[i]);
-        }
-        printf("\n");
-        return ;
-    }
-    for(int x=1;x<=n;x++)
-    {
-        if(hashTable[x] == false){
-            P[index]=x;
-            hashTable[x]=true;
-            generateP(index+1,n);
-            hashTable[x]==false;
-        }
-    }
-}
-int main(){
-    int n=3;
-    generateP(1,n);
-    return 0;
+#include<string>
+#include<iostream>
+using namespace std;
+int main()
+{
+    string s="abcdefghijklmnopqrst";
+        int i=s.size()%3==0?3:s.size()%3;
+        cout<<s.substr(0,0);
+        for(;i<s.size();i+=3)
+            cout<<","<<s.substr(i,3);
 }
