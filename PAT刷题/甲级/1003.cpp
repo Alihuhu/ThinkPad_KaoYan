@@ -1,27 +1,24 @@
-#include<bits/bits/stdc++.h>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
 using namespace std;
-struct Road{
-    int v;
-    int length;
-    Road(int vv=0;int l=0):v(vv),length(l){}
-};
-vector<vector<Road> >graph(505);
-int city[505],dis[505],pathNum[505],teamNum[505];
-bool visit[505];
-int N,M,C1,C2;
-void Dijkstra(){
-    while(!visit[C2]){
-        int MIN=INT_MAX,v=-1;
-        for(int i=0;i<N;++i)
+const int MAXV=510;
+const int INF=100000000;
+int n,m,st,ed,G[MAXV][MAXV],weight[MAXV];
+int d[MAXV],w[MAXV],num[MAXV];
+void Dijkstra(int s){
+    fill(d,d+MAXV,INF);
+    memset(num,0,sizeof(num));
+    memset(w,0,sizeof(w));
+    d[s]=0;
+    w[s]=weight[s];
+    num[s]=1;
+    for(int i=0;i<n;i++)
+    {
+        int u=-1;MIN=INF;
+        for(int j=0;j<n;j++)
         {
-            if(!visit[i]&&dis[i]<MIN){
-                MIN=dis[i];
-                v=i;
-            }
-        }
-        visit[v]=true;
-        for(Road r:graph[v]){
-            if(!visit[r.v])&&dis[r.v]>dis
+            if(vis[j])
         }
     }
 }
