@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/eight.jpg</file>
+        <file>res/five.jpg</file>
+        <file>res/four.jpg</file>
+        <file>res/nine.jpg</file>
+        <file>res/one.jpg</file>
+        <file>res/pacman.jpg</file>
+        <file>res/pacman_down.jpg</file>
+        <file>res/pacman_left.jpg</file>
+        <file>res/pacman_right.jpg</file>
+        <file>res/pacman_up.jpg</file>
+        <file>res/seven.jpg</file>
+        <file>res/six.jpg</file>
+        <file>res/three.jpg</file>
+        <file>res/two.jpg</file>
+        <file>res/zero.jpg</file>
+    </qresource>
+</RCC>
