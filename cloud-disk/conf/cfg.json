@@ -1,0 +1,34 @@
+{
+	"redis":
+	{
+		"ip": "127.0.0.1",
+		"port": "6379"
+	},
+	
+	"mysql":
+	{
+		"ip": "127.0.0.1",
+		"port": "3306",
+		"database": "cloud_disk",
+		"user": "root",
+		"password": "alihuhu001"
+	},
+	
+	"dfs_path":
+	{
+		"client": "./conf/client.conf"
+	},
+	
+	"web_server":
+	{
+		"ip": "192.168.163.134",
+		"port": "80"
+	},
+	
+	"storage_web_server":
+	{
+		"ip": "192.168.163.134",
+		"port": "80"
+	}
+	
+}
