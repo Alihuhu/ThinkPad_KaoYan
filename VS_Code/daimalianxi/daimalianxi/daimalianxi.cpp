@@ -1,35 +1,50 @@
-﻿#include<iostream>
-#include<cstdio>
+﻿#include <iostream>
+#include <thread>
+#include <string>
+#include <mutex>
+#include <fstream>
 using namespace std;
-struct Info
+mutex mu;
+class LofFile
 {
-	char ID[15];
-	int begin;
-	int end;
-}myInfo[1000];
-int main()
+public:
+	LofFile();
+	~LofFile();
+	void shared_print(string id, int value)
+	{
+		lock_guard<mutex> locker(m_mutex);
+		f << "From" << id << ":" << value << endl;
+	}
+private:
+	mutex m_mutex;
+	ofstream f;
+};
+
+LofFile::LofFile()
 {
-	int n;
-	//char myID[15];
-	char mybegin[9];
-	char myend[9];
-	scanf("%d", &n);
-	//Info myInfo[1000];
-	for (int i = 0; i < n; i++)
-	{
-		scanf("%s%s%s", myInfo[i].ID, mybegin, myend);
-		int bbgegin = (mybegin[0]-'0') * 100000 +( mybegin[1]-'0') * 10000 + (mybegin[3]-'0') * 1000 + (mybegin[4]-'0') * 100 + (mybegin[6]-'0') * 10 + (mybegin[7]-'0');
-		myInfo[i].begin = bbgegin;
-		
-		int eend = myend[0] * 100000 + myend[1] * 10000 + myend[3] * 1000 + myend[4] * 100 + myend[6] * 10 + myend[7];
-		myInfo[i].end = eend;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		printf("%s %d %d\n", myInfo[i].ID, myInfo->begin, myInfo->end);
-	}
+	f.open("D:\log.txt");
 }
-3
-as100 08:20 : 56 10 : 10 : 10
-as200 07 : 20 : 20 14 : 14 : 14
-as300 21 : 21 : 21 22 : 22 : 22
+
+LofFile::~LofFile()
+{
+}
+void function_1(LofFile& log) {
+	//mu.lock();
+	for (int i = 0; i < 100; i++)
+		log.shared_print("From func1`:", i);
+	//mu.unlock();
+}
+
+int main()
+{	
+	LofFile log;
+	thread t1(function_1,ref(log));
+	//mu.lock();
+	for (int i = 0; i < 100; i++)
+	{
+		log.shared_print("From main*:", i);
+	}
+	//mu.unlock();
+	t1.join();
+	return 0;
+}
