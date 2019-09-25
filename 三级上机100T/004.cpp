@@ -1,3 +1,4 @@
+void StrOL(void)
 {
     int i,j,k,s,m,strl;
     char str[80];

@@ -1,1 +1,13 @@
-omygod
+omygod4
+ji
+ko
+lp
+mo
+mosa
+asd
+ds
+#include<stdio.h>
+int main()
+{
+	for(int i=0;i<n;i++)
+
